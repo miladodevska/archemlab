@@ -1,4 +1,4 @@
-enum SCREEN { home, splash }
+enum SCREEN { home, splash, details }
 
 extension AppPageExtension on SCREEN {
   String get path {
@@ -7,6 +7,8 @@ extension AppPageExtension on SCREEN {
         return "/splash";
       case SCREEN.home:
         return "/home";
+      case SCREEN.details:
+        return "/details";
     }
   }
 
@@ -16,6 +18,8 @@ extension AppPageExtension on SCREEN {
         return "SPLASH";
       case SCREEN.home:
         return "HOME";
+      case SCREEN.details:
+        return "DETAILS";
     }
   }
 
@@ -25,6 +29,8 @@ extension AppPageExtension on SCREEN {
         return "Splash";
       case SCREEN.home:
         return "Home";
+      case SCREEN.details:
+        return "Details";
     }
   }
 }
