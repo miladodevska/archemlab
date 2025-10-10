@@ -26,11 +26,11 @@ class AppRouter {
         final extras = state.extra as Map<String, String>?;
 
         final title = extras?['title'] ?? 'No Title';
-        final imagePath = extras?['imagePath'] ?? '';
+        final modelPath = extras?['modelPath'] ?? '';
 
         return DetailsScreen(
           title: title,
-          imagePath: imagePath,
+          modelPath: modelPath,
         );
       },
     ),

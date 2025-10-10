@@ -1,10 +1,11 @@
+import 'package:archemlab/screens/ar_viewer_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+import 'package:model_viewer_plus/model_viewer_plus.dart';
 
 class DetailsScreen extends StatelessWidget {
   final String title;
-  final String imagePath;
-  const DetailsScreen({super.key, required this.title, required this.imagePath});
+  final String modelPath;
+  const DetailsScreen({super.key, required this.title, required this.modelPath});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +16,10 @@ class DetailsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Transform.scale(scale: 1.7, child: const Icon(Icons.arrow_back, color: Colors.black)),
+                  onPressed: () => Navigator.pop(context),
+                  icon: const Icon(Icons.arrow_back, color: Colors.black, size: 28),
                 ),
                 const SizedBox(width: 8),
                 Text(
@@ -34,17 +32,65 @@ class DetailsScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 24),
-            Center(
-              child: Lottie.asset(
-                imagePath,
-                height: 150,
-                width: 150,
-                fit: BoxFit.contain,
+            Expanded(
+              child: Center(
+                child: ModelViewer(
+                  src: modelPath,
+                  alt: "3D Model Preview",
+                  ar: false,
+                  autoRotate: true,
+                  disableZoom: true,
+                  cameraControls: false,
+                ),
               ),
             ),
+            const SizedBox(height: 16),
+            Center(
+              child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurple,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                ),
+                icon: const Icon(Icons.view_in_ar, color: Colors.white),
+                label: const Text(
+                  "View in AR",
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => ARViewerScreen(modelPath: modelPath, title: title),
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: 24),
           ],
         ),
       ),
     );
   }
 }
+
+// class ARViewerScreen extends StatelessWidget {
+//   final String title;
+//   final String modelPath;
+//   const ARViewerScreen({super.key, required this.title, required this.modelPath});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(title: Text(title)),
+//       body: ModelViewer(
+//         src: modelPath,
+//         alt: "AR Model",
+//         ar: true,
+//         autoRotate: true,
+//         cameraControls: true,
+//       ),
+//     );
+//   }
+// }
