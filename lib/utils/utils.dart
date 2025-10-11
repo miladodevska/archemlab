@@ -218,3 +218,17 @@ class Utils {
     },
   ];
 }
+
+class ModelUrlUtils {
+  static const String _githubRawBase = 'https://raw.githubusercontent.com/miladodevska/archemlab/main/';
+
+  /// Converts a local asset model path into a public GitHub-hosted GLB URL.
+  /// Example:
+  /// input:  assets/3dmodels/beaker.glb
+  /// output: https://raw.githubusercontent.com/miladodevska/archemlab/main/assets/3dmodels/beaker.glb
+  static String getGithubModelUrl(String localPath) {
+    // Just make sure there's no leading slash
+    String cleanedPath = localPath.startsWith('/') ? localPath.substring(1) : localPath;
+    return '$_githubRawBase$cleanedPath';
+  }
+}
