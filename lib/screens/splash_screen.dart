@@ -42,7 +42,7 @@ class SplashScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/icons/TestTube.gif', // Your GIF here
+                    'assets/icons/TestTube.gif',
                     height: 70,
                     width: 70,
                   ),

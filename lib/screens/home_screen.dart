@@ -3,13 +3,14 @@ import 'package:archemlab/utils/utils.dart';
 import 'package:archemlab/widgets/reusable_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:model_viewer_plus/model_viewer_plus.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final utils = Utils();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -29,23 +30,23 @@ class HomeScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: GridView.builder(
-                    itemCount: Utils().categories.length, // ✅ Use the list from utils
+                    itemCount: utils.categories.length,
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing: 16,
                       crossAxisSpacing: 16,
                     ),
                     itemBuilder: (context, index) {
-                      final category = Utils().categories[index];
+                      final category = utils.categories[index];
                       return ReusableHomeCard(
                         title: category['title']!,
-                        imagePath: category['icon']!,
+                        imagePath: category['thumbnail']!,
                         onTap: () {
                           GoRouter.of(context).push(
                             SCREEN.details.path,
                             extra: {
                               'title': category['title']!,
-                              'modelPath': category['model']!, // modelPath for 3D
+                              'modelPath': category['model']!,
                             },
                           );
                         },
@@ -61,43 +62,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-// class HomeScreen extends StatelessWidget {
-//   const HomeScreen({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.white,
-//       body: SafeArea(
-//         child: Center(
-//           child: Column(
-//             children: [
-//               const SizedBox(height: 20),
-//               const Text(
-//                 '3D Model Test',
-//                 style: TextStyle(
-//                   fontSize: 22,
-//                   fontWeight: FontWeight.bold,
-//                 ),
-//               ),
-//               const SizedBox(height: 20),
-
-//               // Test ModelViewer
-//               Expanded(
-//                 child: ModelViewer(
-//                   src: 'assets/3dmodels/chair.glb', // make sure this exists
-//                   alt: "Test Model",
-//                   autoRotate: true,
-//                   cameraControls: true,
-//                   ar: true,
-//                   disableZoom: false,
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

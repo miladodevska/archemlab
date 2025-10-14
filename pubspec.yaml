@@ -88,6 +88,8 @@ flutter:
   assets:
     - assets/3dmodels/
     - assets/icons/
+    - assets/snapshots/
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
