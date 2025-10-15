@@ -17,6 +17,21 @@ class Utils {
       'thumbnail': boilingLiquidStandSnapshot,
       'model': boilingLiquidStandImage,
     },
+    // {
+    //   'title': 'Bunsen Burner',
+    //   'thumbnail': '',
+    //   'model': bunsenBurnerImage,
+    // },
+    // {
+    //   'title': 'Burette',
+    //   'thumbnail': '',
+    //   'model': buretteImage,
+    // },
+    {
+      'title': 'Buchner Flask',
+      'thumbnail': buchnerFlaskSnapshot,
+      'model': buchnerFlaskImage,
+    },
     {
       'title': 'Chair',
       'thumbnail': chairSnapshot,
@@ -26,6 +41,11 @@ class Utils {
       'title': 'China Dish',
       'thumbnail': chinaDishSnapshot,
       'model': chinaDishImage,
+    },
+    {
+      'title': 'Centrifuge Rotor',
+      'thumbnail': centrifugeRotorSnapshot,
+      'model': centrifugeRotorImage,
     },
     {
       'title': 'Crucible and Cover',
@@ -71,6 +91,11 @@ class Utils {
       'title': 'Graduated Cylinder',
       'thumbnail': graduatedCylinderSnapshot,
       'model': graduatedCylinderImage,
+    },
+    {
+      'title': 'Microscope',
+      'thumbnail': microscopeSnapshot,
+      'model': microscopeImage,
     },
     {
       'title': 'Rack',
