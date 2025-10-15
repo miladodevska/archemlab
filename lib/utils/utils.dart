@@ -17,16 +17,16 @@ class Utils {
       'thumbnail': boilingLiquidStandSnapshot,
       'model': boilingLiquidStandImage,
     },
-    // {
-    //   'title': 'Bunsen Burner',
-    //   'thumbnail': '',
-    //   'model': bunsenBurnerImage,
-    // },
-    // {
-    //   'title': 'Burette',
-    //   'thumbnail': '',
-    //   'model': buretteImage,
-    // },
+    {
+      'title': 'Bunsen Burner',
+      'thumbnail': bunsenBurnerSnapshot,
+      'model': bunsenBurnerImage,
+    },
+    {
+      'title': 'Burette',
+      'thumbnail': buretteSnapshot,
+      'model': buretteImage,
+    },
     {
       'title': 'Buchner Flask',
       'thumbnail': buchnerFlaskSnapshot,
